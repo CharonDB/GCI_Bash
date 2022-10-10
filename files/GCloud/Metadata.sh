@@ -1,0 +1,12 @@
+Gitlab_ProjectID=$(curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/project/attributes/Gitlab_ProjectID")
+Gitlab_Token=$(curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/project/attributes/Gitlab_Token")
+NFS_Share_Address=$(curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/project/attributes/NFS_Share_Address")
+
+ASPNETCORE_ENVIRONMENT=$(curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/project/attributes/ASPNETCORE_URLS")
+bPart_ConnectorType=$(curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/project/attributes/bPart_ConnectorType")
+bPart_MySQL_Host=$(curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/project/attributes/bPart_MySQL_Host")
+bPart_MySQL_Port=$(curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/project/attributes/bPart_MySQL_Port")
+bPart_MySQL_Catalog=$(curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/project/attributes/bPart_MySQL_Catalog")
+bPart_MySQL_UserID=$(curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/project/attributes/bPart_MySQL_UserID")
+bPart_MySQL_Password=$(curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/project/attributes/bPart_MySQL_Password")
+bPart_Redis_ConnectionString=$(curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/project/attributes/bPart_Redis_ConnectionString")

@@ -1,0 +1,68 @@
+.Dd 8/4/10               \" DATE
+.Dt deploy_cloud.sh     \" Program name and manual section number
+.Os GreenObsidian
+.Sh deploy_cloud.sh                 \" Section Header - required - don't modify
+.Nm deploy_cloud.sh ,
+deployment script voor Integratieproject 1 - 2021-2022 - Team 1
+.Sh SYNOPSIS             \" Section Header - required - don't modify
+.Nm
+.Op Fl h | --help
+.Op Fl d | --delete
+.Op Fl -remove-database | --no-db
+.Op Fl -remove-sslcertificate
+.Op Fl -remove-virtualnetwork
+.Op Fl -remove-dns
+
+.Sh REQUIREMENTS
+.Bl -tag -width -indent  \" Begins a tagged list
+.It -               \" Each item preceded by .It macro
+Linuxsysteem met GCloud CLI op geinstalleerd
+.It -
+CLI is Authenticated en authorised voor targetproject
+.It -
+Het targetproject is geselecteerd met gcloud config
+.It
+(gcloud config set project PROJECT_ID)
+.El                      \" Ends the list
+
+Zie ook dat alle variabelen in variables.sh ook juist staan voor de installatie aan te vangen.
+.Ar Het is ook af te raden om dubbele naamgeving te gebruiken in variables.sh, dubbele naamgeving kan leiden tot onverwacht gedrag in het script/deployment.
+
+
+.Sh DESCRIPTION          \" Section Header - required - don't modify
+.Bl -tag -width -indent  \" Begins a tagged list
+.It -h | --help
+Help commando, brengt dit scherm boven
+.It -d | --delete
+Maakt de installatie ongedaan
+.It --no-db
+Context gevoelig, maakt geen SQL repository aan op Google Cloud. Met combinatie van -d wordt de databank niet verwijderd, zelfs met gebruik van --remove-database.
+.It --remove-database
+De MySQL wordt verwijderd, moet in combinatie met [ -d | --delete] gebruikt worden
+.It --remove-sslcertificate
+Verwijdert het SSL certificaat, moet in combinatie met [ -d | --delete] gebruikt worden
+.It --remove-virtualnetwork
+verwijdert de VPC, moet in combinatie met [ -d | --delete] gebruikt worden
+.It --remove-dns
+Verwijdert de DNS Zone, moet in combinatie met [ -d | --delete] gebruikt worden
+.It --remove-redis
+Verwijdert REDIS, moet in combinatie met [ -d | --delete] gebruikt worden
+.El                      \" Ends the list
+.Sh NOTES
+
+Voor DNS provider wordt er gebruik gemaakt van een externe provider, als de zone juist nieuw aangemaakt is wees dan zeker om in Google Cloud DNS bij de zone rechtsboven te zien (Registrar setup),
+.Ar de Nameservers KUNNEN VERWISSELEN,
+reken dus niet dat je altijd dezelfde nameserver gaat krijgen na provisioning. EG:
+.Bl -tag -width -indent  \" Begins a tagged list
+.It -
+ns-cloud-e1.googledomains.com.
+.It vs
+.It -
+ns-cloud-b1.googledomains.com.
+.Sh FILES                \" File used or created by the topic of the man page
+.Bl -tag -width "/Users/joeuser/Library/really_long_file_name" -compact
+.It Pa /usr/share/file_name
+FILE_1 description
+.It Pa /Users/joeuser/Library/really_long_file_name
+FILE_2 description
+.El

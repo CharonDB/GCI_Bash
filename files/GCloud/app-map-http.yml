@@ -1,0 +1,11 @@
+kind: compute#urlMap
+name: app-map-http
+defaultUrlRedirect:
+  redirectResponseCode: MOVED_PERMANENTLY_DEFAULT
+  httpsRedirect: True
+tests:
+- description: Test with no query parameters
+  host: www.domain.com
+  path: /
+  expectedOutputUrl: https://www.domain.com/
+  expectedRedirectResponseCode: 301

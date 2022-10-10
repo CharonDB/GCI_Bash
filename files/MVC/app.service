@@ -1,0 +1,21 @@
+[Unit]
+Description=app
+
+[Service]
+WorkingDirectory=/usr/bin/app/
+Type=simple
+ExecStart=/usr/bin/app/UI.MVC --URLS=http://0.0.0.0:8080
+SyslogIdentifier=app
+User=root
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=app_ConnectorType=mysql
+Environment=app_MySQL_Host=domain.com
+Environment=app_MySQL_Port=3306
+Environment=app_MySQL_Catalog=appcatalog
+Environment=app_MySQL_UserID=appuser
+Environment=app_MySQL_Password=apppassword
+Environment=app_Redis_ConnectionString=12.34.56.78
+
+
+[Install]
+WantedBy=multi-user.target
